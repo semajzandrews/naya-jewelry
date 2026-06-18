@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Naya Jewelry · Fine Jewelry, Custom Pieces &amp; Repairs in Orange, NJ</title>
+<meta name="description" content="Naya Jewelry on Main Street in the City of Orange, New Jersey. Heirloom-quality gold, diamonds, and gemstones, plus custom design and on-site repairs. Visit us at 195 Main St." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --obsidian:#0b0b0d;
+    --obsidian-2:#141318;
+    --ink:#1c1b20;
+    --gold:#c79a4b;
+    --gold-soft:#e2bd76;
+    --gold-deep:#9a7327;
+    --ivory:#f4efe6;
+    --ivory-2:#e9e2d4;
+    --mist:#bdb6a8;
+    --line:rgba(199,154,75,0.22);
+    --serif:'Boska', Georgia, 'Times New Roman', serif;
+    --sans:'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--obsidian);
+    color:var(--ivory);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  ::selection{background:var(--gold);color:var(--obsidian);}
+  :focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;border-radius:2px;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px);}
+  .serif{font-family:var(--serif);font-weight:400;letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:var(--sans);font-size:12px;letter-spacing:0.34em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:500;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px clamp(20px,5vw,56px);
+    transition:background .4s ease, border-color .4s ease, padding .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.nav.scrolled{
+    background:rgba(11,11,13,0.82);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    padding-top:11px;padding-bottom:11px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand-mark{
+    width:34px;height:34px;flex:0 0 34px;position:relative;
+  }
+  .brand-mark svg{width:100%;height:100%;display:block;}
+  .brand-name{display:flex;flex-direction:column;line-height:1;}
+  .brand-name b{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:.01em;}
+  .brand-name span{font-size:9.5px;letter-spacing:0.32em;text-transform:uppercase;color:var(--mist);margin-top:3px;}
+  nav.links{display:flex;align-items:center;gap:30px;}
+  nav.links a{
+    font-size:13.5px;letter-spacing:0.04em;color:var(--ivory-2);position:relative;padding:4px 0;
+  }
+  nav.links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .35s ease;
+  }
+  nav.links a:hover{color:#fff;}
+  nav.links a:hover::after{width:100%;}
+  .nav-call{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid var(--gold);color:var(--gold-soft);
+    padding:9px 18px;border-radius:40px;font-size:13.5px;letter-spacing:0.03em;font-weight:500;
+    transition:background .3s ease,color .3s ease;
+  }
+  .nav-call svg{width:15px;height:15px;}
+  .nav-call:hover{background:var(--gold);color:var(--obsidian);}
+  .nav-call .full{display:inline;}
+  .nav-right{display:flex;align-items:center;gap:26px;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;}
+  @media (max-height:640px){.hero{align-items:center;}}
+  .hero-media{position:absolute;inset:0;overflow:hidden;will-change:transform;}
+  .hero-media img{
+    width:100%;height:118%;object-fit:cover;object-position:center 42%;
+    transform:translateZ(0);filter:saturate(1.04);
+  }
+  .hero-media::before{
+    content:"";position:absolute;inset:0;z-index:2;
+    background:
+      radial-gradient(120% 90% at 70% 18%, rgba(11,11,13,0) 0%, rgba(11,11,13,.35) 55%, rgba(11,11,13,.86) 100%),
+      linear-gradient(180deg, rgba(11,11,13,.55) 0%, rgba(11,11,13,0) 26%, rgba(11,11,13,0) 50%, rgba(11,11,13,.9) 100%);
+  }
+  /* shimmer: a moving light band that "catches the metal" as you scroll */
+  .hero-shimmer{
+    content:"";position:absolute;inset:-20% -10%;z-index:3;pointer-events:none;
+    background:linear-gradient(115deg,
+       rgba(255,255,255,0) 38%,
+       rgba(231,200,122,0.10) 47%,
+       rgba(255,248,228,0.30) 50%,
+       rgba(231,200,122,0.10) 53%,
+       rgba(255,255,255,0) 62%);
+    mix-blend-mode:screen;opacity:.9;will-change:transform;
+    transform:translateY(0) translateX(0);
+  }
+  .hero-inner{position:relative;z-index:5;width:100%;padding-top:108px;padding-bottom:clamp(48px,8vh,104px);}
+  .hero-eyebrow{margin-bottom:22px;opacity:0;animation:rise .9s .15s ease forwards;}
+  .hero h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(2.9rem,8.2vw,6.2rem);line-height:0.98;letter-spacing:-0.018em;
+    color:#fff;max-width:14ch;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-soft);}
+  .hero h1 .l{display:block;opacity:0;transform:translateY(26px);animation:rise 1s ease forwards;}
+  .hero h1 .l:nth-child(1){animation-delay:.28s;}
+  .hero h1 .l:nth-child(2){animation-delay:.42s;}
+  .hero h1 .l:nth-child(3){animation-delay:.56s;}
+  .hero-sub{
+    margin-top:26px;max-width:46ch;color:var(--ivory-2);font-size:clamp(1rem,1.4vw,1.13rem);
+    opacity:0;animation:rise 1s .7s ease forwards;
+  }
+  .hero-cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;opacity:0;animation:rise 1s .82s ease forwards;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:500;letter-spacing:0.03em;
+    padding:14px 26px;border-radius:42px;transition:transform .3s ease,background .3s ease,color .3s ease,border-color .3s ease;
+  }
+  .btn svg{width:16px;height:16px;}
+  .btn-gold{background:var(--gold);color:var(--obsidian);}
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);}
+  .btn-ghost{border:1px solid rgba(244,239,230,0.3);color:var(--ivory);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);transform:translateY(-2px);}
+  .hero-meta{
+    position:absolute;right:clamp(20px,5vw,56px);bottom:clamp(56px,9vh,104px);z-index:5;
+    text-align:right;display:none;
+  }
+  .hero-meta .v{font-family:var(--serif);font-size:2rem;color:#fff;line-height:1;}
+  .hero-meta .k{font-size:10.5px;letter-spacing:0.26em;text-transform:uppercase;color:var(--mist);margin-top:7px;}
+
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+
+  /* ---------- MARQUEE STRIP ---------- */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--obsidian-2);overflow:hidden;}
+  .strip-track{display:flex;gap:0;white-space:nowrap;animation:slide 34s linear infinite;}
+  .strip-track span{
+    font-family:var(--serif);font-size:clamp(1rem,2vw,1.35rem);color:var(--ivory-2);
+    padding:18px 34px;display:inline-flex;align-items:center;gap:34px;
+  }
+  .strip-track span i{color:var(--gold);font-style:normal;font-size:.7em;}
+  @keyframes slide{to{transform:translateX(-50%);}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative;}
+  .pad{padding:clamp(76px,12vh,140px) 0;}
+  .sec-head{max-width:60ch;margin-bottom:clamp(40px,6vw,64px);}
+  .sec-head .eyebrow{display:block;margin-bottom:18px;}
+  .sec-head h2{
+    font-family:var(--serif);font-weight:400;color:#fff;
+    font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.04;letter-spacing:-0.015em;
+  }
+  .sec-head h2 em{font-style:italic;color:var(--gold-soft);}
+  .sec-head p{margin-top:20px;color:var(--mist);font-size:1.04rem;max-width:52ch;}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- COLLECTION GRID + SPOTLIGHT HOVER ---------- */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(14px,1.6vw,22px);}
+  .piece{
+    position:relative;overflow:hidden;border-radius:6px;background:var(--obsidian-2);
+    border:1px solid rgba(199,154,75,0.14);
+    transition:transform .55s cubic-bezier(.2,.7,.2,1),border-color .55s ease,box-shadow .55s ease;
+    isolation:isolate;
+  }
+  .piece img{
+    width:100%;height:100%;object-fit:cover;
+    filter:brightness(.74) saturate(.92) contrast(1.02);
+    transition:filter .6s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);
+  }
+  .piece .frame{position:relative;overflow:hidden;}
+  /* spotlight + gleam sweep */
+  .piece .spot{
+    position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;
+    background:radial-gradient(380px circle at var(--mx,50%) var(--my,40%),
+      rgba(255,247,225,0.22), rgba(255,247,225,0.05) 38%, rgba(0,0,0,0) 60%);
+    transition:opacity .5s ease;
+  }
+  .piece .gleam{
+    position:absolute;top:-60%;left:-40%;width:55%;height:220%;z-index:3;pointer-events:none;
+    transform:rotate(18deg) translateX(-120%);
+    background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,248,228,0.55) 50%,rgba(255,255,255,0) 100%);
+    mix-blend-mode:screen;opacity:0;
+  }
+  .piece .cap{
+    position:absolute;left:0;right:0;bottom:0;z-index:4;padding:22px 22px 20px;
+    background:linear-gradient(180deg,rgba(11,11,13,0) 0%,rgba(11,11,13,.85) 78%);
+    transform:translateY(8px);transition:transform .55s ease;
+  }
+  .piece .cap .t{font-family:var(--serif);font-size:1.32rem;color:#fff;line-height:1.05;}
+  .piece .cap .d{font-size:12.5px;color:var(--gold-soft);letter-spacing:0.16em;text-transform:uppercase;margin-top:8px;}
+  .piece:hover{transform:translateY(-7px);border-color:var(--gold);box-shadow:0 26px 60px -28px rgba(199,154,75,0.55);}
+  .piece:hover img{filter:brightness(1.04) saturate(1.05) contrast(1.03);transform:scale(1.05);}
+  .piece:hover .spot{opacity:1;}
+  .piece:hover .cap{transform:none;}
+  .piece:hover .gleam{animation:sweep 1.05s ease forwards;}
+  @keyframes sweep{0%{opacity:0;transform:rotate(18deg) translateX(-120%);}18%{opacity:1;}100%{opacity:0;transform:rotate(18deg) translateX(420%);}}
+
+  .p-tall{grid-column:span 4;aspect-ratio:3/4.4;}
+  .p-wide{grid-column:span 5;aspect-ratio:4/3.2;}
+  .p-reg{grid-column:span 3;aspect-ratio:3/3.7;}
+  .p-reg2{grid-column:span 4;aspect-ratio:4/4.2;}
+  .p-wide2{grid-column:span 8;aspect-ratio:16/8.4;}
+
+  /* ---------- CUSTOM & REPAIRS ---------- */
+  .trust{background:linear-gradient(180deg,var(--obsidian) 0%,var(--obsidian-2) 100%);border-top:1px solid var(--line);}
+  .trust-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(36px,5vw,72px);align-items:center;}
+  .trust-figure{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--line);}
+  .trust-figure img{width:100%;aspect-ratio:4/4.6;object-fit:cover;filter:brightness(.92) contrast(1.03);}
+  .trust-figure .tag{
+    position:absolute;left:20px;bottom:20px;background:rgba(11,11,13,0.74);backdrop-filter:blur(6px);
+    border:1px solid var(--line);border-radius:40px;padding:9px 18px;font-size:12px;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--gold-soft);
+  }
+  .svc-list{margin-top:38px;display:grid;gap:2px;border-top:1px solid var(--line);}
+  .svc{
+    display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line);
+  }
+  .svc .num{font-family:var(--serif);font-size:.95rem;color:var(--gold);min-width:34px;padding-top:3px;}
+  .svc .body h4{font-family:var(--serif);font-weight:500;font-size:1.32rem;color:#fff;}
+  .svc .body p{margin-top:6px;color:var(--mist);font-size:.98rem;max-width:44ch;}
+
+  /* ---------- HOURS / VISIT ---------- */
+  .visit{background:var(--obsidian-2);border-top:1px solid var(--line);}
+  .visit-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(34px,4.5vw,64px);align-items:stretch;}
+  .info-card{
+    background:linear-gradient(180deg,rgba(199,154,75,0.06),rgba(199,154,75,0) 60%),var(--obsidian);
+    border:1px solid var(--line);border-radius:10px;padding:clamp(28px,3.4vw,42px);
+  }
+  .status{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:8px 16px;font-size:13px;
+    font-weight:500;letter-spacing:0.03em;border:1px solid var(--line);background:rgba(11,11,13,0.5);margin-bottom:26px;}
+  .status .dot{width:9px;height:9px;border-radius:50%;background:var(--mist);position:relative;}
+  .status.open .dot{background:#6fcf97;box-shadow:0 0 0 0 rgba(111,207,151,.55);animation:pulse 2.4s infinite;}
+  .status.closed .dot{background:#d98a6a;}
+  .status .lbl{color:var(--ivory);}
+  .status .sub{color:var(--mist);font-weight:400;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(111,207,151,.5);}70%{box-shadow:0 0 0 10px rgba(111,207,151,0);}100%{box-shadow:0 0 0 0 rgba(111,207,151,0);}}
+  .info-card h3{font-family:var(--serif);font-weight:400;font-size:1.9rem;color:#fff;margin-bottom:6px;}
+  .info-card .addr{color:var(--mist);font-size:1rem;}
+  .hours{margin-top:26px;border-top:1px solid var(--line);}
+  .hours .row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);font-size:.97rem;}
+  .hours .row .day{color:var(--ivory-2);letter-spacing:0.02em;}
+  .hours .row .hrs{color:var(--mist);font-variant-numeric:tabular-nums;}
+  .hours .row.now{}
+  .hours .row.now .day{color:var(--gold-soft);}
+  .hours .row.now .hrs{color:var(--gold-soft);}
+  .visit-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;}
+  .map-frame{
+    position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);min-height:360px;height:100%;
+  }
+  .map-frame iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:saturate(.9);}
+  .map-frame::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(199,154,75,0.06),rgba(11,11,13,0) 30%,rgba(11,11,13,0.34) 100%);
+  }
+
+  /* ---------- CTA BAND ---------- */
+  .band{position:relative;overflow:hidden;border-top:1px solid var(--line);}
+  .band-bg{position:absolute;inset:0;z-index:0;}
+  .band-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.32) saturate(1.05);}
+  .band-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 50% 0%,rgba(11,11,13,.4),rgba(11,11,13,.92));}
+  .band-inner{position:relative;z-index:2;text-align:center;padding:clamp(80px,12vh,150px) 0;}
+  .band-inner h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5.4vw,4rem);line-height:1.02;color:#fff;letter-spacing:-0.015em;}
+  .band-inner h2 em{font-style:italic;color:var(--gold-soft);}
+  .band-inner p{margin:22px auto 0;max-width:48ch;color:var(--ivory-2);}
+  .band-inner .hero-cta{justify-content:center;animation:none;opacity:1;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--obsidian);border-top:1px solid var(--line);}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:clamp(58px,8vh,86px) 0 46px;}
+  .foot-brand .brand-name b{font-size:26px;}
+  .foot-brand p{margin-top:18px;color:var(--mist);max-width:34ch;font-size:.97rem;}
+  .foot-col h5{font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;}
+  .foot-col a,.foot-col p{display:block;color:var(--ivory-2);font-size:.97rem;margin-bottom:11px;transition:color .3s ease;}
+  .foot-col a:hover{color:var(--gold-soft);}
+  .foot-bot{
+    display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+    padding:24px 0 30px;border-top:1px solid var(--line);
+  }
+  .foot-bot p{color:var(--mist);font-size:13px;}
+  .builtby{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mist);}
+  .builtby a{color:var(--gold-soft);border-bottom:1px solid var(--line);padding-bottom:1px;transition:border-color .3s ease;}
+  .builtby a:hover{border-color:var(--gold-soft);}
+  .builtby .spark{width:13px;height:13px;}
+
+  /* ---------- MOBILE CALL PILL ---------- */
+  .call-fab{
+    position:fixed;right:16px;bottom:16px;z-index:70;width:54px;height:54px;border-radius:50%;
+    background:var(--gold);color:var(--obsidian);display:none;align-items:center;justify-content:center;
+    box-shadow:0 10px 28px -8px rgba(199,154,75,0.7);
+  }
+  .call-fab svg{width:22px;height:22px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1080px){
+    .p-tall{grid-column:span 6;}.p-wide{grid-column:span 6;}.p-reg{grid-column:span 6;}
+    .p-reg2{grid-column:span 6;}.p-wide2{grid-column:span 12;}
+    .trust-grid{grid-template-columns:1fr;}
+    .visit-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:860px){
+    nav.links{display:none;}
+    .foot-top{grid-template-columns:1fr 1fr;}
+    .foot-brand{grid-column:1/-1;}
+  }
+  @media (max-width:640px){
+    .nav-call .full{display:none;}
+    .nav-call{padding:10px;border-radius:50%;width:44px;height:44px;justify-content:center;}
+    .nav-call svg{width:17px;height:17px;}
+    .call-fab{display:flex;}
+    .grid{gap:12px;}
+    .p-tall,.p-wide,.p-reg,.p-reg2,.p-wide2{grid-column:span 12;aspect-ratio:4/3.3;}
+    .p-tall{aspect-ratio:3/3.6;}
+    .foot-top{grid-template-columns:1fr;}
+    .hero h1{font-size:clamp(2.7rem,12vw,3.6rem);}
+    .hours .row{font-size:.92rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto;}
+    .hero h1 .l,.hero-eyebrow,.hero-sub,.hero-cta{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<a class="call-fab" href="tel:+19736751234" aria-label="Call Naya Jewelry at (973) 675-1234">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Naya Jewelry home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L33 11 L33 27 L20 37 L7 27 L7 11 Z" stroke="#c79a4b" stroke-width="1.3"/>
+        <path d="M20 9 L27.5 13.5 L27.5 24 L20 30 L12.5 24 L12.5 13.5 Z" stroke="#e2bd76" stroke-width="1"/>
+        <path d="M20 9 L20 30 M12.5 13.5 L27.5 24 M27.5 13.5 L12.5 24" stroke="#9a7327" stroke-width=".7"/>
+        <circle cx="20" cy="20" r="2.1" fill="#e2bd76"/>
+      </svg>
+    </span>
+    <span class="brand-name"><b>Naya Jewelry</b><span>Orange · New Jersey</span></span>
+  </a>
+  <div class="nav-right">
+    <nav class="links" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#custom">Custom &amp; Repairs</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="nav-call" href="tel:+19736751234" aria-label="Call Naya Jewelry at (973) 675-1234">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="full">(973) 675-1234</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Naya Jewelry introduction">
+    <div class="hero-media" id="heroMedia">
+      <img src="https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=1900" alt="A pair of round brilliant diamond stud earrings catching the light against dark, raw stone." fetchpriority="high" />
+      <span class="hero-shimmer" id="heroShimmer" aria-hidden="true"></span>
+    </div>
+    <div class="hero-inner wrap">
+      <span class="eyebrow hero-eyebrow">Main Street Fine Jewelers · Since the heart of Orange</span>
+      <h1>
+        <span class="l">Where gold is</span>
+        <span class="l"><em>kept</em>, not just</span>
+        <span class="l">bought.</span>
+      </h1>
+      <p class="hero-sub">Naya Jewelry is a small, personal shop on Main Street in the City of Orange. We make heirloom pieces, set the stones you bring us, and bring tired jewelry back to life. Every piece is chosen, sized, and checked by hand.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#collection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          View the collection
+        </a>
+        <a class="btn btn-ghost" href="#custom">Custom &amp; repairs</a>
+      </div>
+    </div>
+    <div class="hero-meta" aria-hidden="true">
+      <div class="v">195</div>
+      <div class="k">Main Street, Orange</div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track">
+      <span>Engagement &amp; bridal <i>◆</i> Gold by the gram <i>◆</i> Stone setting <i>◆</i> Ring sizing <i>◆</i> Chain repair <i>◆</i> Watch batteries <i>◆</i> Appraisals <i>◆</i></span>
+      <span>Engagement &amp; bridal <i>◆</i> Gold by the gram <i>◆</i> Stone setting <i>◆</i> Ring sizing <i>◆</i> Chain repair <i>◆</i> Watch batteries <i>◆</i> Appraisals <i>◆</i></span>
+    </div>
+  </div>
+
+  <!-- COLLECTION -->
+  <section class="pad" id="collection">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">The Collection</span>
+        <h2>Pieces that catch the light, and <em>hold</em> a memory.</h2>
+        <p>A rotating case of diamonds, gold, and colored stones. Hover any piece to see it brighten, the way it does under the shop's lights. What you see is a sample. Come in and we will pull the rest of the tray.</p>
+      </div>
+
+      <div class="grid">
+        <article class="piece p-tall reveal" tabindex="0">
+          <div class="frame" style="height:100%">
+            <img src="https://images.pexels.com/photos/691046/pexels-photo-691046.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="A round brilliant diamond solitaire engagement ring resting beside a polished wedding band on soft ivory fabric." />
+            <span class="spot"></span><span class="gleam"></span>
+            <div class="cap"><div class="t">The Solitaire</div><div class="d">Engagement &amp; bridal</div></div>
+          </div>
+        </article>
+
+        <article class="piece p-wide reveal" tabindex="0">
+          <div class="frame" style="height:100%">
+            <img src="https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=1300" alt="A woman wearing a layered warm-gold beaded necklace and matching bracelet against a soft outdoor background." />
+            <span class="spot"></span><span class="gleam"></span>
+            <div class="cap"><div class="t">Worn Every Day</div><div class="d">Gold necklaces &amp; bracelets</div></div>
+          </div>
+        </article>
+
+        <article class="piece p-reg reveal" tabindex="0">
+          <div class="frame" style="height:100%">
+            <img src="https://images.pexels.com/photos/5370706/pexels-photo-5370706.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Two sky-blue topaz rings in prong settings photographed on a dark reflective surface." />
+            <span class="spot"></span><span class="gleam"></span>
+            <div class="cap"><div class="t">Blue Topaz</div><div class="d">Colored stones</div></div>
+          </div>
+        </article>
+
+        <article class="piece p-reg2 reveal" tabindex="0">
+          <div class="frame" style="height:100%">
+            <img src="https://images.pexels.com/photos/1232931/pexels-photo-1232931.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="A halo diamond engagement ring nestled in the petals of a deep red rose." />
+            <span class="spot"></span><span class="gleam"></span>
+            <div class="cap"><div class="t">The Halo</div><div class="d">Diamond rings</div></div>
+          </div>
+        </article>
+
+        <article class="piece p-reg reveal" tabindex="0">
+          <div class="frame" style="height:100%">
+            <img src="https://images.pexels.com/photos/998521/pexels-photo-998521.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A slim rose-gold band set with a row of small diamonds, resting on a dark reflective glass surface." />
+            <span class="spot"></span><span class="gleam"></span>
+            <div class="cap"><div class="t">The Eternity Band</div><div class="d">Anniversary &amp; stacking</div></div>
+          </div>
+        </article>
+
+        <article class="piece p-wide2 reveal" tabindex="0">
+          <div class="frame" style="height:100%">
+            <img src="https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?auto=compress&cs=tinysrgb&w=1500" alt="Two warm rose-gold wedding bands in an open box beside a gold olive-leaf and pearl crown on an engraved gold surface." />
+            <span class="spot"></span><span class="gleam"></span>
+            <div class="cap"><div class="t">Made to Be Passed Down</div><div class="d">Wedding bands &amp; keepsakes</div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM & REPAIRS -->
+  <section class="trust pad" id="custom">
+    <div class="wrap trust-grid">
+      <div class="trust-figure reveal">
+        <img src="https://images.pexels.com/photos/1721937/pexels-photo-1721937.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Two hands holding a pair of pearl and gold halo earrings in an open palm, deciding on a piece." />
+        <span class="tag">Hand to hand, in the shop</span>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Custom &amp; Repairs</span>
+        <h2 class="serif" style="font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.04;color:#fff;margin-top:18px;letter-spacing:-0.015em;">
+          Bring us the gold. Bring us the <em style="font-style:italic;color:var(--gold-soft);">story</em>.
+        </h2>
+        <p style="margin-top:18px;color:var(--mist);max-width:50ch;">
+          A clasp that finally gave out. A grandmother's ring that no longer fits. Loose stones you have been afraid to wear. We handle the small jobs most people put off for years, and we design new pieces from scratch when you are ready to make something of your own.
+        </p>
+
+        <div class="svc-list">
+          <div class="svc">
+            <span class="num">01</span>
+            <div class="body"><h4>Custom design</h4><p>Tell us the piece in your head. We sketch it, quote it honestly, and build it in gold or platinum, your stones or ours.</p></div>
+          </div>
+          <div class="svc">
+            <span class="num">02</span>
+            <div class="body"><h4>Repairs &amp; restoration</h4><p>Ring sizing, chain and clasp repair, prong rebuilding, re-tipping, polishing, and rhodium plating that makes white gold bright again.</p></div>
+          </div>
+          <div class="svc">
+            <span class="num">03</span>
+            <div class="body"><h4>Stone setting &amp; resetting</h4><p>Reset an inherited diamond into something you will actually wear, or replace a stone that fell out years ago.</p></div>
+          </div>
+          <div class="svc">
+            <span class="num">04</span>
+            <div class="body"><h4>Watch batteries &amp; appraisals</h4><p>Quick battery swaps while you wait, plus straightforward appraisals for insurance and peace of mind.</p></div>
+          </div>
+        </div>
+
+        <div class="hero-cta" style="animation:none;opacity:1;margin-top:34px;">
+          <a class="btn btn-gold" href="tel:+19736751234">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Ask about a repair
+          </a>
+          <a class="btn btn-ghost" href="#visit">Plan a visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT / HOURS / MAP -->
+  <section class="visit pad" id="visit">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:clamp(34px,5vw,52px)">
+        <span class="eyebrow">Visit the Shop</span>
+        <h2>On Main Street, where Orange does its <em>everyday</em> shopping.</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="info-card reveal">
+          <div class="status" id="statusPill" aria-live="polite">
+            <span class="dot"></span>
+            <span class="lbl" id="statusLabel">Checking hours</span>
+            <span class="sub" id="statusSub"></span>
+          </div>
+          <h3 class="serif">Naya Jewelry</h3>
+          <p class="addr">195 Main St, City of Orange, NJ 07050</p>
+
+          <div class="hours" id="hoursList" aria-label="Store hours">
+            <div class="row" data-day="0"><span class="day">Sunday</span><span class="hrs">9:30 AM – 4:00 PM</span></div>
+            <div class="row" data-day="1"><span class="day">Monday</span><span class="hrs">9:30 AM – 6:00 PM</span></div>
+            <div class="row" data-day="2"><span class="day">Tuesday</span><span class="hrs">9:30 AM – 6:00 PM</span></div>
+            <div class="row" data-day="3"><span class="day">Wednesday</span><span class="hrs">9:30 AM – 6:00 PM</span></div>
+            <div class="row" data-day="4"><span class="day">Thursday</span><span class="hrs">9:30 AM – 6:00 PM</span></div>
+            <div class="row" data-day="5"><span class="day">Friday</span><span class="hrs">9:30 AM – 6:00 PM</span></div>
+            <div class="row" data-day="6"><span class="day">Saturday</span><span class="hrs">9:30 AM – 6:00 PM</span></div>
+          </div>
+
+          <div class="visit-actions">
+            <a class="btn btn-gold" href="tel:+19736751234">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (973) 675-1234
+            </a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps?q=195+Main+St,+City+of+Orange,+NJ+07050" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Get directions
+            </a>
+          </div>
+        </div>
+
+        <div class="map-frame reveal">
+          <iframe
+            title="Naya Jewelry location at 195 Main St, City of Orange, NJ 07050"
+            src="https://www.google.com/maps?q=195+Main+St,+City+of+Orange,+NJ+07050&z=16&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="band">
+    <div class="band-bg" aria-hidden="true">
+      <img src="https://images.pexels.com/photos/1457801/pexels-photo-1457801.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+    </div>
+    <div class="band-inner wrap">
+      <h2>Some pieces are worth<br><em>making by hand.</em></h2>
+      <p>Stop in on Main Street, or call ahead so we can have the right tray, the right stone, and the right size waiting for you.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="tel:+19736751234">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (973) 675-1234
+        </a>
+        <a class="btn btn-ghost" href="#collection">See the collection</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Naya Jewelry home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <path d="M20 3 L33 11 L33 27 L20 37 L7 27 L7 11 Z" stroke="#c79a4b" stroke-width="1.3"/>
+              <path d="M20 9 L27.5 13.5 L27.5 24 L20 30 L12.5 24 L12.5 13.5 Z" stroke="#e2bd76" stroke-width="1"/>
+              <circle cx="20" cy="20" r="2.1" fill="#e2bd76"/>
+            </svg>
+          </span>
+          <span class="brand-name"><b>Naya Jewelry</b><span>Orange · New Jersey</span></span>
+        </a>
+        <p>A neighborhood jeweler on Main Street. Heirloom pieces, custom design, and honest repairs in the City of Orange.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#collection">Collection</a>
+        <a href="#custom">Custom &amp; repairs</a>
+        <a href="#visit">Visit &amp; hours</a>
+        <a href="https://www.google.com/maps?q=195+Main+St,+City+of+Orange,+NJ+07050" target="_blank" rel="noopener">Directions</a>
+      </div>
+      <div class="foot-col">
+        <h5>Find Us</h5>
+        <a href="https://www.google.com/maps?q=195+Main+St,+City+of+Orange,+NJ+07050" target="_blank" rel="noopener">195 Main St<br>City of Orange, NJ 07050</a>
+        <a href="tel:+19736751234">(973) 675-1234</a>
+        <p>Sun 9:30 AM – 4 PM<br>Mon–Sat 9:30 AM – 6 PM</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© <span id="yr"></span> Naya Jewelry Corporation. All rights reserved.</p>
+      <span class="builtby">
+        <svg class="spark" viewBox="0 0 24 24" fill="none" stroke="#e2bd76" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+        Built by <a href="https://bysemaj.com" target="_blank" rel="noopener">bysemaj.com</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var heroMedia=document.getElementById('heroMedia');
+  var heroShimmer=document.getElementById('heroShimmer');
+
+  /* nav background on scroll + parallax shimmer hero */
+  var ticking=false;
+  function onScroll(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');}
+    if(heroMedia && y<window.innerHeight){
+      heroMedia.style.transform='translateY('+(y*0.28)+'px)';
+      if(heroShimmer){
+        /* light band travels across the metal as you scroll */
+        var p=y/Math.max(window.innerHeight,1);
+        heroShimmer.style.transform='translateY('+(y*0.12)+'px) translateX('+( -30 + p*120 )+'%)';
+      }
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+  },{passive:true});
+  onScroll();
+
+  /* reveal on scroll */
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  /* spotlight follows cursor on each piece */
+  document.querySelectorAll('.piece').forEach(function(p){
+    p.addEventListener('pointermove',function(ev){
+      var r=p.getBoundingClientRect();
+      var spot=p.querySelector('.spot');
+      if(spot){
+        spot.style.setProperty('--mx',((ev.clientX-r.left)/r.width*100)+'%');
+        spot.style.setProperty('--my',((ev.clientY-r.top)/r.height*100)+'%');
+      }
+    });
+  });
+
+  /* live open / closed status (America/New_York) */
+  var hours={0:[9.5,16],1:[9.5,18],2:[9.5,18],3:[9.5,18],4:[9.5,18],5:[9.5,18],6:[9.5,18]};
+  function nyParts(){
+    var f=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'numeric',hour12:false});
+    var map={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    var d=0,h=0,m=0;
+    f.formatToParts(new Date()).forEach(function(pt){
+      if(pt.type==='weekday')d=map[pt.value];
+      if(pt.type==='hour')h=parseInt(pt.value,10);
+      if(pt.type==='minute')m=parseInt(pt.value,10);
+    });
+    if(h===24)h=0;
+    return {d:d,t:h+m/60};
+  }
+  function fmt(t){
+    var h=Math.floor(t),m=Math.round((t-h)*60);
+    var ap=h>=12?'PM':'AM',hh=h%12;if(hh===0)hh=12;
+    return hh+(m?(':'+(m<10?'0'+m:m)):'')+' '+ap;
+  }
+  function updateStatus(){
+    var p=nyParts();var span=hours[p.d];
+    var pill=document.getElementById('statusPill');
+    var lbl=document.getElementById('statusLabel');
+    var sub=document.getElementById('statusSub');
+    var open=p.t>=span[0]&&p.t<span[1];
+    pill.classList.remove('open','closed');
+    if(open){
+      pill.classList.add('open');
+      lbl.textContent='Open now';
+      sub.textContent='· until '+fmt(span[1]);
+    }else{
+      pill.classList.add('closed');
+      lbl.textContent='Closed';
+      var nd=p.d,steps=0,opensAt;
+      if(p.t<span[0]){opensAt=span[0];sub.textContent='· opens '+fmt(opensAt);}
+      else{
+        do{nd=(nd+1)%7;steps++;}while(steps<7&&!hours[nd]);
+        var label=steps===1?'tomorrow':['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][nd];
+        sub.textContent='· opens '+label+' '+fmt(hours[nd][0]);
+      }
+    }
+    document.querySelectorAll('#hoursList .row').forEach(function(r){
+      r.classList.toggle('now',parseInt(r.getAttribute('data-day'),10)===p.d);
+    });
+  }
+  updateStatus();
+  setInterval(updateStatus,60000);
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
